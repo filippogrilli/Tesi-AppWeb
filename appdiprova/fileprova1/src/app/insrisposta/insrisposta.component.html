@@ -1,0 +1,29 @@
+<form #addNewScalaForm="ngForm" class="example-form"> <!-- (submit)="addNewScala(addNewScalaForm)" > --> 
+    <mat-form-field class="example-full-width">
+      <mat-label>Risposta</mat-label>
+      <input type="text" ngModel matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+             placeholder="Ex. Età paziente" name="sm_description" required ngModel>            <!-- aggiunto ngModel -->
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Perfavore, inserire la risposta
+      </mat-error>  
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        La risposta è <strong>richiesta</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Punteggio</mat-label>
+      <input type="text" ngModel matInput [formControl]="emailFormControl2" [errorStateMatcher]="matcher"
+             placeholder="Ex. Età paziente" name="sm_description" required ngModel>            <!-- aggiunto ngModel -->
+      <mat-error *ngIf="emailFormControl2.hasError('email') && !emailFormControl2.hasError('required')">
+        Perfavore, inserire il punteggio
+      </mat-error>  
+      <mat-error *ngIf="emailFormControl2.hasError('required')">
+        Il punteggio è <strong>richiesto</strong>
+      </mat-error>
+    </mat-form-field>
+
+
+    <button mat-raised-button (click)="addfunzioni()" mat-dialog-close mat-button [disabled]="visibile" >Crea nuova risposta</button>
+    <!-- <button (click)="openDialog()", mat-dialog-close mat-button [disabled]="visibile" >Crea nuovo pop up per le risposta</button> -->
+  </form>

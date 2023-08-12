@@ -1,0 +1,37 @@
+<mat-list style= "display: contents;">
+    <!--<mat-list-item *ngFor="let answer of domandeList">
+        <h3 style="text-align: left; width:100%"> {{answer.text}}</h3>
+        <a routerLink="/inserimento" routerLinkActive="active" ariaCurrentWhenActive="page" style="text-decoration: none; color:black; text-align: right; width: 100%;"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon></a>
+        <mat-divider></mat-divider>
+    </mat-list-item>-->
+    <mat-list-item>
+        <a (click)="openDialoginsdomande()" routerLinkActive="active" ariaCurrentWhenActive="page" style="text-decoration: none; color:black; text-align: center; width: 100%;">Crea una nuova domanda</a>
+        <mat-divider></mat-divider>
+    </mat-list-item>
+
+    <mat-accordion>
+        <div *ngFor="let question of domandeList">
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header (click)="loadRisposte(question.id)" >
+            <mat-panel-title style="display: list-item; flex-basis: max-content; text-align: left; padding-top: 20px;">
+                <h3 style="text-align: left; width:100%"> {{question.header}}</h3>
+            </mat-panel-title>
+            <p style="padding-right: 40px; padding-top: 20px;" ><mat-icon style="text-align: right" (click)="rimuovidomanda(question.id)">delete</mat-icon> </p> 
+            
+                <!-- VORREI INSERIRLA AL POSTO DELLA FRECCETTA-->
+            <!--<mat-panel-description style="flex-grow: 0;">
+                <p>isdfaufsabfbasfibafbafbbfdbfoba</p>
+                <mat-icon style="text-align: right" (click)="rimuovi(question.id)">delete</mat-icon>
+            </mat-panel-description>
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>-->
+          </mat-expansion-panel-header>
+          <mat-panel-title *ngFor="let answer of risposteList" >
+            <h3 style="text-align: left; width:100%"> {{answer.text}}</h3>
+            <a routerLinkActive="disabled" ariaCurrentWhenActive="page" style="text-decoration: none; color:black; text-align: right; width: 100%;"> <mat-icon style="text-align: right" (click)="rimuovirisposta(answer.id)">delete</mat-icon></a>
+        </mat-panel-title>
+        <a (click)="openDialoginsrisposte(question.id)" routerLinkActive="active" ariaCurrentWhenActive="page" style="text-decoration: none; color:black; text-align: center; width: 100%;">Crea una nuova risposta</a>
+        </mat-expansion-panel>
+        </div>
+      </mat-accordion>
+</mat-list>

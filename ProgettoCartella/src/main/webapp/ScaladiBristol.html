@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<title>Insert title here</title>
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+    <div style = "width : 100%; height: 100%; " > <!-- l'altezza va sistemata perchè non è responsive-->
+        <div ng-repeat="x in names" style = " width : 100% ; height: 100px; top:50%; left:50px; background-color: beige;">
+            <a style="color: black;">
+                <h3 href="{{x}}.html" target="_blank" >{{x}}</h3>
+                <!-- <div style="text-align: right;"><h2>x</h2> </div> -->
+                
+            </a>
+                <!-- non ci dovrebbe essere un bottone ma un div con un href -->
+        </div>
+    </div>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+
+app.controller('myCtrl', function($scope) {
+    var num = 0;
+    $scope.names = ["Il paziente vede?", "Il paziente parla?", "Domanda3", "Crea nuova domanda"]; //qui ci deve andare la chiamata alla query che restituisce i nomi di tutte le scale
+});
+</script>
+
+</body>
+</html>

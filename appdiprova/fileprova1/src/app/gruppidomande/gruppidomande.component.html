@@ -1,0 +1,26 @@
+<!-- <mat-list>
+    <mat-list-item>
+        <a routerLink="/domande" routerLinkActive="active" ariaCurrentWhenActive="page" style="text-decoration: none; color:black; text-align: center; width: 100%;">Crea un nuovo gruppo di domande</a>
+        <mat-divider></mat-divider>
+    </mat-list-item>
+    <mat-list-item *ngFor="let answer of gruppidomandeList">
+        <h3 style="text-align: center; width:100%"> {{answer.header}}</h3>
+        <a routerLink="/domande" routerLinkActive="active" ariaCurrentWhenActive="page" style="text-decoration: none; color:black; text-align: right; width: 100%;"><mat-icon aria-hidden="false" aria-label="Example home icon"></mat-icon></a>
+        <mat-divider></mat-divider>
+    </mat-list-item>
+    
+</mat-list> -->
+
+<router-outlet></router-outlet>
+<mat-list>
+    <mat-list-item>
+        <!-- <mat-icon>home</mat-icon> -->
+        <a (click)="openDialog()" routerLinkActive="active" ariaCurrentWhenActive="page" style="text-decoration: none; color:black; text-align: center; width: 100%;">Crea una nuova gruppo di domande</a>
+        <mat-divider></mat-divider>
+    </mat-list-item>
+    <mat-list-item *ngFor="let user of gruppidomandeList; let i = index" [style.backgroundColor]="i % 2 == 0?'whitegrey':''" style="background-color:cornsilk">
+        <h3  style="text-align: left; width:100%"><a routerLink="/domande" [queryParams]="{name2: user.id, name:name }" routerLinkActive="active"  ariaCurrentWhenActive="page" style="text-decoration: none; color:black">{{user.header}}</a></h3>
+        <mat-icon (click)="rimuovi(user.id)">delete</mat-icon>
+        <mat-divider></mat-divider>
+    </mat-list-item>
+</mat-list>

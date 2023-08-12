@@ -1,0 +1,7 @@
+<router-outlet></router-outlet>
+<mat-list>
+    <mat-list-item *ngFor="let user of scaledivalutazioneList">
+        <h3><a routerLink="/gruppi" [queryParams]="{name: user.sm_id}"routerLinkActive="active" ariaCurrentWhenActive="page" style="text-decoration: none; color:black">{{user.sm_description}}</a></h3>
+        <mat-divider></mat-divider>
+    </mat-list-item>
+</mat-list>

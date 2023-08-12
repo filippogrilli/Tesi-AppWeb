@@ -1,0 +1,39 @@
+<mat-grid-list cols="4" rowHeight="100px">
+    <!-- <mat-grid-tile
+        *ngFor="let tile of tiles"
+        [colspan]="tile.cols"
+        [rowspan]="tile.rows"
+        [style.background]="tile.color" >
+      {{tile.text}}
+    </mat-grid-tile> -->
+    <mat-grid-tile colspan="2" rowspan="2" style="background-color: rgb(236, 236, 252);">
+      <p>che domanda vuoi fare?</p>
+      <span></span>
+      <mat-form-field class="example-full-width">
+        <mat-label>Inserisci testo</mat-label>
+        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="2" style="background-color: rgb(138, 138, 138);">
+      <p>inserisci numero risposte possibili</p>
+      <span></span>
+      <mat-form-field class="example-full-width">
+        <mat-label>Inserisci numero</mat-label>
+        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+      </mat-form-field>
+    </mat-grid-tile>
+
+
+    <mat-grid-tile colspan="4" rowspan="1" style="background-color: rgb(162, 127, 127);">
+      <mat-list>
+          <mat-form-field class="example-full-width">
+            <mat-label class="prova">Domanda1</mat-label>
+            <input matInput placeholder="Ex. Pizza">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label class="prova">Risposta1</mat-label>
+            <input matInput placeholder="Ex. Pizza">
+          </mat-form-field>
+      </mat-list>
+    </mat-grid-tile>
+  </mat-grid-list>

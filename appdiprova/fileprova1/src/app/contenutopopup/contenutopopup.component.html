@@ -1,0 +1,19 @@
+<form #addNewScalaForm="ngForm" class="example-form"> <!-- (submit)="addNewScala(addNewScalaForm)" > --> 
+  <mat-form-field class="example-full-width">
+    <mat-label>Nome</mat-label>
+    <input type="text" ngModel matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+           placeholder="Ex. Scala di Bartex" name="sm_description" required ngModel>            <!-- aggiunto ngModel -->
+    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+      Perfavore, inserire un nome
+    </mat-error>
+    <mat-error *ngIf="emailFormControl.hasError('required')">
+      Il nome è <strong>richiesto</strong>
+    </mat-error>
+  </mat-form-field>
+  <button mat-raised-button (click)="addNewScala()" mat-dialog-close mat-button [disabled]="visibile" >Crea nuova scala</button>
+</form>
+
+<!-- da aggiungere [queryParams]="{name: user.sm_id}"routerLinkActive="active" ma non so come passare l'id giusto
+    capire come togliere il popup una volta premuto il bottone-->
+
+
